@@ -23,10 +23,10 @@ module.exports = {
                     "file-loader",
                     {
                         loader: "image-webpack-loader",
-                        options: {
-                                bypassingOnDebug: true,
-                                disable: true,
-                        },
+                        // options: {
+                        //         bypassingOnDebug: true,
+                        //         disable: true,
+                        // },
                     },
                 ],
             },
