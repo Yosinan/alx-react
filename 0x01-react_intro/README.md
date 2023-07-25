@@ -1,10 +1,12 @@
 # REACT Intro
 ### Frontend, Javascript, ES6, React
 
--------------------------------------
+
+=======================================================
+
 #### "It doesn't matter where you are, I will find you and i will render you"
 
-======================================
+=======================================================
 
 ## Learning Objectives
 
