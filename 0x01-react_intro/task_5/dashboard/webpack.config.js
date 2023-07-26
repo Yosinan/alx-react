@@ -38,6 +38,15 @@ module.exports = {
                 use: [ 'style-loader', 'css-loader' ],
             },
 
+           {
+
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                loader: 'babel-loader',
+                },
+            },
+
             {
                 test: /\.(?:ico|png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
@@ -54,4 +63,7 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+      },
 };
