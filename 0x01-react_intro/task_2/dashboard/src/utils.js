@@ -8,3 +8,7 @@ export  function getFooterCopy(isIndex) {
 export function getFullYear() {
     return new Date().getFullYear();
 }
+
+export function getLatestNotification() {
+    return '<strong>Urgent requirement</strong> - complete by EOD';
+}

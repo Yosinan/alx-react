@@ -1,5 +1,26 @@
+:root {
+    --color-holberton: #e01d3f;
+}
+
 .Notifications{
-    border: 1px solid #e6e6e6;
-    padding: 5rem;
-    
+    border: 2px dashed var(--color-holberton);
+    padding-top: 5px; 
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.Notifications button img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+[data-priority="default"] {
+    color: #0a0a54;
+}
+
+[data-priority="urgent"] {
+    color: var(--color-holberton);
 }
