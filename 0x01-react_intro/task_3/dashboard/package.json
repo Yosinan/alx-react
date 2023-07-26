@@ -37,9 +37,7 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {
-    "enzyme": "^3.11.0"
-  },
+  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC"
