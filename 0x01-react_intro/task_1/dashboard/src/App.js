@@ -2,6 +2,7 @@ import logo from './Holberton_logo.jpg';
 import './App.css';
 import {getFooterCopy, getFullYear} from './utils.js';
 
+
 function App() {
   return (
     <>
