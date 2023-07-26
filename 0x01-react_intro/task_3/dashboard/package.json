@@ -1,7 +1,8 @@
 {
-  "name": "dashboard",
+  "name": "holberton-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yosinan.github.io/alx-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -15,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -37,7 +40,10 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "gh-pages": "^5.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
