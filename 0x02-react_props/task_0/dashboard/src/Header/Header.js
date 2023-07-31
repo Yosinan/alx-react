@@ -1,4 +1,4 @@
-import logo from '../assets/holberton_logo.jpg';
+import logo from '../assets/Holberton_logo.jpg';
 import './Header.css';
 
 
