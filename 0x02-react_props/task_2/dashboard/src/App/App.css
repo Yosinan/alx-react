@@ -10,7 +10,6 @@
   border-bottom: 3px solid var(--color-holberton);
 }
 
-
 .App-body {
   margin: 300px;
   margin-left: 90px;
@@ -22,12 +21,12 @@
   margin-right: 10px;
 }
 
-.App-footer {
+/* .App-footer {
   border-top: 3px solid var(--color-holberton);
   width: 100%;
   display: flex;
   justify-content: center;
   /* position: fixed;
-  bottom: 0; */
+  bottom: 0; *
   font-style: italic;
-}
+ */
