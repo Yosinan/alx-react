@@ -1,4 +1,5 @@
 import React from "react";
+import { getFooterCopy, getFullYear } from "../utils/utils";
 import "./Footer.css";
 
 export default function Footer() {
@@ -6,7 +7,7 @@ export default function Footer() {
     <>
       <div className="App-footer">
         <p>
-          <i>Copyright 2020 - holberton School</i>
+          Copyright {getFullYear()} - {getFooterCopy(true)}
         </p>
       </div>
     </>
