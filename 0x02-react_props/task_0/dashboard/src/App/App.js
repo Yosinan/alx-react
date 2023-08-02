@@ -9,7 +9,6 @@ import './App.css';
 function App() {
   return (
     <>
-    <p>New text</p>
      <div className='root-notifications'>
         <Notifications />
       </div>

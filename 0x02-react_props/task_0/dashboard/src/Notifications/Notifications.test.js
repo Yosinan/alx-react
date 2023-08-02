@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import Notifications from './Notifications';
 
 
-
 describe('<Notifications />', () => {
 
     // test that Notifications renders without crashing
