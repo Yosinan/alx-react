@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/Holberton_logo.jpg";
 import "./Header.css";
 
-export default function Header() {
+function Header() {
   return (
     <>
       <div className="App-header">
@@ -12,3 +12,5 @@ export default function Header() {
     </>
   );
 }
+
+export default Header;

@@ -1,0 +1,11 @@
+:root {
+  --color-holberton: #e01d3f;
+}
+
+.App-footer {
+  border-top: 3px solid var(--color-holberton);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+}
