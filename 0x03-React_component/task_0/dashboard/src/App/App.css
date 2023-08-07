@@ -2,14 +2,6 @@
   --color-holberton: #e01d3f;
 }
 
-.App-header {
-  display: flex;
-  align-items: center;
-  color: var(--color-holberton);
-  font-size: 20px;
-  border-bottom: 3px solid var(--color-holberton);
-}
-
 .App-body {
   margin-left: 90px;
   margin-top: 70px;
@@ -20,12 +12,3 @@
   margin-right: 10px;
 }
 
-/* .App-footer {
-  border-top: 3px solid var(--color-holberton);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  /* position: fixed;
-  bottom: 0; *
-  font-style: italic;
- */
