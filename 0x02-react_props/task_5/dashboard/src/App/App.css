@@ -30,14 +30,6 @@
   font-style: italic;
  */
 
-.Notifications {
-  padding: 6px 12px;
-  position: absolute;
-  top: 7px;
-  right: 2px;
-  margin-top: 25px;
-}
-
 /* .displayNotifications {
   border: 2px dashed var(--color-holberton);
   padding-top: 5px;
@@ -45,24 +37,3 @@
   padding-right: 100px;
   padding-bottom: 5px;
 } */
-
-.menuItem {
-  position: absolute;
-  top: 7px;
-  right: 12px;
-}
-
-.Notifications button img {
-  width: 20px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-[data-priority="default"] {
-  color: #0a0a54;
-}
-
-[data-priority="urgent"] {
-  color: var(--color-holberton);
-}
