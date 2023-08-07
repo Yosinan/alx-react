@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 // import { useState } from "react";
 import PropTypes from "prop-types";
 import Header from "../Header/Header";
@@ -9,7 +9,7 @@ import { getLatestNotification } from "../utils/utils";
 import CourseList from "../CourseList/CourseList";
 import "./App.css";
 
-export default class App extends Component {
+export default class App extends React.Component {
   static listCourses = [
     { id: 1, name: "ES6", credit: 60 },
     { id: 2, name: "Webpack", credit: 20 },
