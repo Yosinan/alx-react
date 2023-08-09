@@ -1,5 +1,8 @@
 module.exports = {
-  transform: {
-    "^.+\\.jsx?$": "babel-jest",
+  testEnvironment: "jsdom",
+  jest: {
+    moduleNameMapper: {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    },
   },
 };
