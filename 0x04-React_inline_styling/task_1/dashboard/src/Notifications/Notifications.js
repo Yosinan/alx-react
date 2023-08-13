@@ -5,6 +5,7 @@ import closeIcon from "../assets/close-icon.png";
 // import { getLatestNotification } from "../utils/utils";
 import NotificationItem from "./NotificationItem";
 import NotificationItemShape from "./NotificationItemShape";
+import { StyleSheet, css } from "aphrodite";
 
 export class Notifications extends Component {
   constructor(props) {
@@ -17,7 +18,9 @@ export class Notifications extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.listNotifications.length > this.props.listNotifications.length;
+    return (
+      nextProps.listNotifications.length > this.props.listNotifications.length
+    );
   }
 
   render() {
@@ -26,7 +29,7 @@ export class Notifications extends Component {
         <div className="menuItem">Your notifications</div>
         <div className="Notifications">
           {this.props.displayDrawer && (
-            <div className="displayNotifications">
+            <div className={css(styles.Notifications)}>
               <p>Here is the list of notifications</p>
               <button
                 style={{
@@ -69,6 +72,16 @@ export class Notifications extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  Notifications: {
+    border: "2px dashed #e01d3f",
+    paddingTop: "5px",
+    paddingLeft: "5px",
+    paddingRight: "100px",
+    paddingBottom: "5px",
+  },
+});
 
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,

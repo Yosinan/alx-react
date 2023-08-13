@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import CourseShape from "./CourseShape";
 import CourseListRow from "./CourseListRow";
 import "./CourseList.css";
+import { StyleSheet, css } from "aphrodite";
 
 const CourseList = ({ listCourses }) => {
   return (
-    <table id="CourseList">
+    <table id="CourseList" className={css(styles.table)}>
       <thead>
         <CourseListRow textFirstCell="Available courses" isHeader={true} />
         <CourseListRow
@@ -36,6 +37,16 @@ const CourseList = ({ listCourses }) => {
     </table>
   );
 };
+
+const styles = StyleSheet.create({
+  table: {
+    width: "80%",
+    border: "1.5px solid gray",
+    margin: "auto",
+    marginTop: "50px",
+    padding: "0",
+  },
+});
 
 CourseList.propTypes = {
   listCourses: PropTypes.arrayOf(CourseShape),

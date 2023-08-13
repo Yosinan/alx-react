@@ -10,14 +10,6 @@
   margin-top: 25px;
 }
 
-.displayNotifications {
-  border: 2px dashed var(--color-holberton);
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 100px;
-  padding-bottom: 5px;
-}
-
 .menuItem {
   position: absolute;
   top: 7px;

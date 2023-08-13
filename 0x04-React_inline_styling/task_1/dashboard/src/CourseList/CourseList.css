@@ -9,14 +9,6 @@ th:first-child {
   text-align: center;
 }
 
-table {
-  width: 80%;
-  border: 1.5px solid gray;
-  margin: auto;
-  margin-top: 50px;
-  padding: 0;
-}
-
 td {
   padding-left: 2px;
 }

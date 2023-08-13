@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import Notifications from "../Notifications/Notifications";
 import { getLatestNotification } from "../utils/utils";
 import CourseList from "../CourseList/CourseList";
-import "./App.css";
+import { StyleSheet, css } from "aphrodite";
 import BodySection from "../BodySection/BodySection";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 
@@ -54,7 +54,7 @@ export default class App extends React.Component {
         </div>
         <div className="App">
           <Header />
-          <div className="App-body">
+          <div className={css(bodyStyle.App)}>
             {this.props.isLoggedIn ? (
               <BodySectionWithMarginBottom title="Course list">
                 <CourseList listCourses={this.listCourses} />
@@ -68,7 +68,7 @@ export default class App extends React.Component {
               <p>Lorem ipsum ...</p>
             </BodySection>
           </div>
-          <div className="App-footer">
+          <div className={css(footerStyle.footerStyle)}>
             <Footer />
           </div>
         </div>
@@ -76,6 +76,29 @@ export default class App extends React.Component {
     );
   }
 }
+
+const bodyStyle = StyleSheet.create({
+  App: {
+    marginLeft: "90px",
+    marginTop: "70px",
+    position: "relative",
+  },
+});
+
+const footerStyle = StyleSheet.create({
+  footerStyle: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    bottom: "0",
+    width: "100%",
+    borderTop: "3px solid #ce314b",
+    textAlign: "center",
+    fontStyle: "italic",
+    fontSize: "12px",
+  },
+});
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
