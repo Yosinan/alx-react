@@ -42,7 +42,11 @@ export class Notifications extends Component {
                 onClick={console.log("Close button has been clicked")}
                 aria-label="Close"
               >
-                <img src={closeIcon} alt="close-icon" />
+                <img
+                  src={closeIcon}
+                  alt="close-icon"
+                  className={css(styles.img)}
+                />
               </button>
               <ul>
                 {this.props.listNotifications.length == 0 ? (

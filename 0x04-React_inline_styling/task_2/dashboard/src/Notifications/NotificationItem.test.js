@@ -1,7 +1,9 @@
-import { shallow } from "enzyme";
+import { shallow, Enzyme } from "enzyme";
+// import Adapter from "enzyme-adapter-react-15";
 import React from "react";
 import NotificationItem from "./NotificationItem";
 import { StyleSheetTestUtils } from "aphrodite";
+// Enzyme.configure({ adapter: new Adapter() });
 
 beforeEach(() => {
   StyleSheetTestUtils.suppressStyleInjection();

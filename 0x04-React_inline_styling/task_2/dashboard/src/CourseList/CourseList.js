@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import CourseShape from "./CourseShape";
 import CourseListRow from "./CourseListRow";
-import "./CourseList.css";
 import { StyleSheet, css } from "aphrodite";
 
 const CourseList = ({ listCourses }) => {
@@ -46,6 +45,12 @@ const styles = StyleSheet.create({
     marginTop: "50px",
     padding: "0",
   },
+  // th: {
+  //   borderBottom: "1px solid gray",
+  //   padding: "0px",
+  //   margin: "0px",
+  //   textAlign: "center",
+  // },
 });
 
 CourseList.propTypes = {

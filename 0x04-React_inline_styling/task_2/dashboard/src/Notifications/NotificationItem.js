@@ -5,8 +5,6 @@ import { StyleSheet, css } from "aphrodite";
 class NotificationItem extends Component {
   constructor(props) {
     super(props);
-    this.selectedStyle =
-      this.props.type === "urgent" ? styles.items.urgent : styles.items.default;
   }
 
   render() {
@@ -17,7 +15,7 @@ class NotificationItem extends Component {
         <li
           data-priority={type}
           onClick={markAsRead(id)}
-          className={css(this.selectedStyle)}
+          className={css(type === "urgent" ? styles.urgent : styles.default)}
         >
           {value}
         </li>
@@ -28,7 +26,7 @@ class NotificationItem extends Component {
           data-priority={type}
           dangerouslySetInnerHTML={html}
           onClick={markAsRead(id)}
-          className={css(this.selectedStyle)}
+          className={css(type === "urgent" ? styles.urgent : styles.default)}
         ></li>
       );
     return <li data-priority={type}></li>;
@@ -37,10 +35,10 @@ class NotificationItem extends Component {
 
 const styles = StyleSheet.create({
   urgent: {
-    backgroundColor: "#FF0000",
+    color: "#e01d3f",
   },
   default: {
-    backgroundColor: "#00FF00",
+    color: "#0a0a54",
   },
 });
 
