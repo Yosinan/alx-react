@@ -1,11 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Login from "./Login"; // Import the Login component
-import { StyleSheetTestUtils } from "aphrodite";
 
-beforeEach(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
 describe("Login component", () => {
   it("renders without crashing", () => {
     // Shallow render the Login component

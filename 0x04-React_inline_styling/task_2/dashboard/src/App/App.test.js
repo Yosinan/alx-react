@@ -3,9 +3,7 @@ import { shallow } from "enzyme";
 import App from "./App";
 import { StyleSheetTestUtils } from "aphrodite";
 
-beforeEach(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("App component", () => {
   it("renders without crashing", () => {

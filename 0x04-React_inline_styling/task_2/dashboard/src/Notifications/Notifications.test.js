@@ -1,11 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Notifications from "./Notifications";
-import { StyleSheetTestUtils } from "aphrodite";
 
-beforeEach(() => {
-  StyleSheetTestUtils.suppressStyleInjection();
-});
 describe("<Notifications />", () => {
   // test that Notifications renders without crashing
   it("renders without crashing", () => {
