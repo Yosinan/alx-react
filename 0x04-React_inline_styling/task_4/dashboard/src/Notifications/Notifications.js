@@ -25,56 +25,69 @@ export class Notifications extends Component {
   render() {
     return (
       <>
-        <div className={css(styles.menuItem)}>Your notifications</div>
-        <div className={css(styles.mainNotifications)}>
-          {this.props.displayDrawer && (
-            <div className={css(styles.Notifications)}>
+        {!this.props.displayDrawer ? (
+          <div className={css(styles.menuItem)}>Your notifications</div>
+        ) : (
+          <div className={css(styles.Notifications)}>
+            <button
+              style={{
+                float: "right",
+                backgroundColor: "#fff",
+                border: "none",
+                outline: "none",
+                cursor: "pointer",
+                marginTop: "-70px",
+              }}
+              aria-label="Close"
+              onClick={console.log("Close button has been clicked")}
+            >
+              <img
+                src={closeIcon}
+                alt="close-icon"
+                className={css(styles.img)}
+              />
+            </button>
+            {this.props.listNotifications.length != 0 ? (
               <p>Here is the list of notifications</p>
-              <button
-                style={{
-                  float: "right",
-                  backgroundColor: "#fff",
-                  border: "none",
-                  outline: "none",
-                  cursor: "pointer",
-                  marginTop: "-70px",
-                }}
-                onClick={console.log("Close button has been clicked")}
-                aria-label="Close"
-              >
-                <img
-                  src={closeIcon}
-                  alt="close-icon"
-                  className={css(styles.img)}
+            ) : null}
+            <ul className={css(styles.ul)}>
+              {this.props.listNotifications.length == 0 ? (
+                <NotificationItem
+                  type="default"
+                  value="No new notification for now"
                 />
-              </button>
-              <ul className={css(styles.ul)}>
-                {this.props.listNotifications.length == 0 ? (
+              ) : null}
+              {this.props.listNotifications.map((val, idx) => {
+                return (
                   <NotificationItem
-                    type="default"
-                    value="No new notification for now"
+                    type={val.type}
+                    value={val.value}
+                    html={val.html}
+                    id={val.id}
+                    key={val.id}
+                    markAsRead={this.markAsRead}
                   />
-                ) : null}
-                {this.props.listNotifications.map((val, idx) => {
-                  return (
-                    <NotificationItem
-                      type={val.type}
-                      value={val.value}
-                      html={val.html}
-                      id={val.id}
-                      key={val.id}
-                      markAsRead={this.markAsRead}
-                    />
-                  );
-                })}
-              </ul>
-            </div>
-          )}
-        </div>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </>
     );
   }
 }
+
+const opacityAnimation = {
+  "0%": { opacity: 0.5 },
+  "100%": { opacity: 1 },
+};
+
+const bounceAnimation = {
+  "0%": { transform: "translateY(0px)" },
+  "33%": { transform: "translateY(-5px)" },
+  "66%": { transform: "translateY(5px)" },
+  "100%": { transform: "translateY(0px)" },
+};
 
 const styles = StyleSheet.create({
   Notifications: {
@@ -83,6 +96,10 @@ const styles = StyleSheet.create({
     paddingLeft: "5px",
     paddingRight: "100px",
     paddingBottom: "5px",
+    top: "21px",
+    right: "7px",
+    marginTop: "12px",
+    zIndex: 100,
     fontSize: "20px",
     "@media (max-width: 900px)": {
       width: "100%",
@@ -96,19 +113,28 @@ const styles = StyleSheet.create({
     },
   },
   menuItem: {
-    position: "absolute",
-    top: "7px",
-    right: "12px",
+    position: "relative",
+    // top: "7px",
+    // right: "12px",
     textAlign: "right",
+    zIndex: 100,
+    float: "right",
+    backgroundColor: "#fff8f8",
+    ":hover ": {
+      cursor: "pointer",
+      animationName: [opacityAnimation, bounceAnimation],
+      animationDuration: "1s, 0.5s",
+      animationIterationCount: "3",
+    },
   },
 
-  mainNotifications: {
-    padding: "6px 12px",
-    position: "absolute",
-    top: "7px",
-    right: " 2px",
-    marginTop: "25px",
-  },
+  // mainNotifications: {
+  //   padding: "6px 12px",
+  //   position: "absolute",
+  //   top: "7px",
+  //   right: " 2px",
+  //   marginTop: "25px",
+  // },
   ul: {
     "@media (max-width: 900px)": {
       padding: 0,
