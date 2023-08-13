@@ -2,6 +2,9 @@ import React from "react";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import BodySectionWithMarginBottom from "./BodySectionWithMarginBottom";
+import { StyleSheetTestUtils } from "aphrodite";
+
+StyleSheetTestUtils.suppressStyleInjection();
 
 test("renders BodySection component with correct props", () => {
   const mockProps = {
