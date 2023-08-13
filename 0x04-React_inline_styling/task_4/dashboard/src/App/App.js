@@ -96,7 +96,7 @@ const footerStyle = StyleSheet.create({
     borderTop: "3px solid #ce314b",
     textAlign: "center",
     fontStyle: "italic",
-    fontSize: "12px",
+    fontSize: "17px",
   },
 });
 
