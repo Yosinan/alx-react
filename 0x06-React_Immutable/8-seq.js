@@ -12,15 +12,3 @@ export default function printBestStudents(object) {
   console.log(mapped.toJS());
 }
 
-printBestStudents({
-  1: {
-    score: 99,
-    firstName: "guillaume",
-    lastName: "salva",
-  },
-  2: {
-    score: 60,
-    firstName: "Julien",
-    lastName: "Dj",
-  },
-});
