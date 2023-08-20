@@ -1,17 +1,17 @@
 import { Seq } from 'immutable';
 
-export default function printBestStudents(object) {
-  const students = Seq(object);
-  const filtered = students.filter((student) => student.score > 70);
-  
-  Object.keys(filtered).map((key) => {
-    const fname = filtered[key].firstName;
-    const lname = filtered[key].lastName;
+export default function printBestStudents(obj) {
+  const seq = Seq(obj);
+  const filteredStudents = seq.filter((val) => val.score > 70).toJS();
 
-    filtered[key].firstName = fname.charAt(0).toUpperCase() + fname.slice(1);
-    filtered[key].lastName = lname.charAt(0).toUpperCase() + lname.slice(1);
+  Object.keys(filteredStudents).map((key) => {
+    const fname = filteredStudents[key].firstName;
+    const lname = filteredStudents[key].lastName;
+
+    filteredStudents[key].firstName = fname.charAt(0).toUpperCase() + fname.slice(1);
+    filteredStudents[key].lastName = lname.charAt(0).toUpperCase() + lname.slice(1);
     return null;
   });
 
-  console.log(filtered.toJS());
+  console.log(filteredStudents);
 }
