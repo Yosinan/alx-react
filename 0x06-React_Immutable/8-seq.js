@@ -8,8 +8,8 @@ export default function printBestStudents(object) {
     const fname = filtered[key].firstName;
     const lname = filtered[key].lastName;
 
-    fname.charAt(0).toUpperCase() + fname.slice(1);
-    lname.charAt(0).toUpperCase() + lname.slice(1);
+    filtered[key].firstName = fname.charAt(0).toUpperCase() + fname.slice(1);
+    filtered[key].lastName = lname.charAt(0).toUpperCase() + lname.slice(1);
     return null;
   });
 
