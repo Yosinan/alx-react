@@ -20,7 +20,7 @@ export class Notifications extends Component {
     return (
       nextProps.listNotifications.length >
         this.props.listNotifications.length ||
-      nextProps.displayDrawer !== this.props.displayDrawer
+      nextProps.displayDrawer != this.props.displayDrawer
     );
   }
 
