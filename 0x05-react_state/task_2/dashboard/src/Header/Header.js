@@ -1,14 +1,29 @@
 import React from "react";
 import logo from "../assets/Holberton_logo.jpg";
+import { AppContext } from "../App/AppContext";
 import { StyleSheet, css } from "aphrodite";
 
 export default function Header() {
+  const { user, logOut } = React.useContext(AppContext);
+
   return (
     <>
-      <div className={css(styles.header)}>
+      <header className={css(styles.header)}>
         <img src={logo} className={css(styles.logo)} alt="logo" />
         <h1 className="title">School dashboard</h1>
-      </div>
+      </header>
+      {user.isLoggedIn && (
+        <section id="logoutSection">
+          <p>
+            Welcome<strong> {user.email} </strong>
+            <em>
+              <a href="#" onClick={logOut}>
+                (logout)
+              </a>
+            </em>
+          </p>
+        </section>
+      )}
     </>
   );
 }
