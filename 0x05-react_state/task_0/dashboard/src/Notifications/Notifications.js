@@ -30,10 +30,7 @@ export class Notifications extends Component {
         {!this.props.displayDrawer ? (
           <div
             className={css(styles.menuItem)}
-            onClick={() => {
-              console.log("Your notifications");
-              this.props.handleDisplayDrawer();
-            }}
+            onClick={this.props.handleDisplayDrawer}
           >
             Your notifications
           </div>
