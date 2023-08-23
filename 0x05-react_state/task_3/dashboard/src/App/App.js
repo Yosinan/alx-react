@@ -1,5 +1,4 @@
 import React from "react";
-// import { useState } from "react";
 import PropTypes from "prop-types";
 import Header from "../Header/Header";
 import Login from "../Login/Login";
@@ -10,6 +9,7 @@ import CourseList from "../CourseList/CourseList";
 import { StyleSheet, css } from "aphrodite";
 import BodySection from "../BodySection/BodySection";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
+import { user, AppContext } from "./AppContext";
 
 export default class App extends React.Component {
   listCourses = [
@@ -26,16 +26,34 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.isLoggedIn = props.isLoggedIn;
-    this.logOut = props.logOut;
+    this.logIn = this.logIn.bind(this);
+    this.logOut = this.logOut.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
 
     this.state = {
       displayDrawer: false,
+      user: user,
+      logOut: this.logOut,
     };
 
     this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
     this.handleHideDrawer = this.handleHideDrawer.bind(this);
+  }
+
+  logIn(email, password) {
+    this.setState({
+      user: {
+        email,
+        password,
+        isLoggedIn: true,
+      },
+    });
+  }
+
+  logOut() {
+    this.setState({
+      user: user,
+    });
   }
 
   handleDisplayDrawer() {
@@ -63,36 +81,43 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className="root-notifications">
-          <Notifications
-            listNotifications={this.listNotifications}
-            displayDrawer={this.state.displayDrawer}
-            handleDisplayDrawer={this.handleDisplayDrawer}
-            handleHideDrawer={this.handleHideDrawer}
-          />
-        </div>
-        <div className="App">
-          <Header />
-          <div className={css(bodyStyle.App)}>
-            {this.props.isLoggedIn ? (
-              <BodySectionWithMarginBottom title="Course list">
-                <CourseList listCourses={this.listCourses} />
-              </BodySectionWithMarginBottom>
-            ) : (
-              <BodySectionWithMarginBottom title="Log in to continue">
-                <Login />
-              </BodySectionWithMarginBottom>
-            )}
-            <BodySection title="News from the School">
-              <p>Lorem ipsum ...</p>
-            </BodySection>
+      <AppContext.Provider
+        value={{
+          user: this.state.user,
+          logOut: this.state.logOut,
+        }}
+      >
+        <React.Fragment>
+          <div className="root-notifications">
+            <Notifications
+              listNotifications={this.listNotifications}
+              displayDrawer={this.state.displayDrawer}
+              handleDisplayDrawer={this.handleDisplayDrawer}
+              handleHideDrawer={this.handleHideDrawer}
+            />
           </div>
-          <div className={css(footerStyle.footerStyle)}>
-            <Footer />
+          <div className="App">
+            <Header />
+            <div className={css(bodyStyle.App)}>
+              {this.state.user.isLoggedIn ? (
+                <BodySectionWithMarginBottom title="Course list">
+                  <CourseList listCourses={this.listCourses} />
+                </BodySectionWithMarginBottom>
+              ) : (
+                <BodySectionWithMarginBottom title="Log in to continue">
+                  <Login logIn={this.logIn} />
+                </BodySectionWithMarginBottom>
+              )}
+              <BodySection title="News from the School">
+                <p>Lorem ipsum ...</p>
+              </BodySection>
+            </div>
+            <div className={css(footerStyle.footerStyle)}>
+              <Footer />
+            </div>
           </div>
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+      </AppContext.Provider>
     );
   }
 }
@@ -121,11 +146,11 @@ const footerStyle = StyleSheet.create({
 });
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool,
+  logIn: PropTypes.func,
   logOut: PropTypes.func,
 };
 
 App.defaultProps = {
-  isLoggedIn: false,
+  logIn: () => {},
   logOut: () => {},
 };
