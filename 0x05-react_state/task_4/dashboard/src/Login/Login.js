@@ -16,7 +16,7 @@ export default function Login(props) {
   }, [email, password]);
 
   const handleLoginSubmit = (e) => {
-    event.preventDefault();
+    e.preventDefault();
     props.logIn(e.target.elements.email.value, e.target.elements.password.value);
   };
 

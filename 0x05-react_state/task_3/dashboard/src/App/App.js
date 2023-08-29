@@ -18,26 +18,34 @@ export default class App extends React.Component {
     { id: 3, name: "React", credit: 40 },
   ];
 
-  listNotifications = [
-    { id: 1, value: "New course available", type: "default" },
-    { id: 2, value: "New resume available", type: "urgent" },
-    { id: 3, html: { __html: getLatestNotification() }, type: "urgent" },
-  ];
-
   constructor(props) {
     super(props);
     this.logIn = this.logIn.bind(this);
     this.logOut = this.logOut.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+    this.markNotificationAsRead = this.markNotificationAsRead.bind(this);
 
     this.state = {
       displayDrawer: false,
       user: user,
       logOut: this.logOut,
+      listNotifications: [
+        { id: 1, value: "New course available", type: "default" },
+        { id: 2, value: "New resume available", type: "urgent" },
+        { id: 3, html: { __html: getLatestNotification() }, type: "urgent" },
+      ]
     };
 
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
+  }
+
+  markNotificationAsRead(id) {
+    console.log(`Notification ${id} has been marked as read`)
+    const newList = this.state.listNotifications.filter((notification) => 
+      notification.id !== id );
+      console.log(newList)
+    this.setState({listNotifications: newList});
   }
 
   logIn(email, password) {
@@ -90,7 +98,8 @@ export default class App extends React.Component {
         <React.Fragment>
           <div className="root-notifications">
             <Notifications
-              listNotifications={this.listNotifications}
+              listNotifications={this.state.listNotifications}
+              markNotificationAsRead={this.markNotificationAsRead}
               displayDrawer={this.state.displayDrawer}
               handleDisplayDrawer={this.handleDisplayDrawer}
               handleHideDrawer={this.handleHideDrawer}
