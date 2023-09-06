@@ -10,8 +10,10 @@ import { StyleSheet, css } from "aphrodite";
 import BodySection from "../BodySection/BodySection";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import { user, AppContext } from "./AppContext";
+import * as uiAC from "../actions/uiActionCreators";
+import { connect } from "react-redux";
 
-export default class App extends React.Component {
+export class App extends React.Component {
   listCourses = [
     { id: 1, name: "ES6", credit: 60 },
     { id: 2, name: "Webpack", credit: 20 },
@@ -42,10 +44,10 @@ export default class App extends React.Component {
 
   markNotificationAsRead(id) {
     console.log(`Notification ${id} has been marked as read`)
-    const newList = this.state.listNotifications.filter((notification) => 
-      notification.id !== id );
-      console.log(newList)
-    this.setState({listNotifications: newList});
+    const newList = this.state.listNotifications.filter((notification) =>
+      notification.id !== id);
+    console.log(newList)
+    this.setState({ listNotifications: newList });
   }
 
   logIn(email, password) {
@@ -131,6 +133,25 @@ export default class App extends React.Component {
   }
 }
 
+
+export function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.get("isUserLoggedIn"),
+    displayDrawer: state.get("isNotificationDrawerVisible"),
+  }
+};
+
+const mapDispatchToProps = {
+  displayNotificationDrawer: uiAC.displayNotificationDrawer,
+  hideNotificationDrawer: uiAC.hideNotificationDrawer,
+
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+
 const bodyStyle = StyleSheet.create({
   App: {
     marginLeft: "90px",
@@ -160,6 +181,6 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-  logIn: () => {},
-  logOut: () => {},
+  logIn: () => { },
+  logOut: () => { },
 };
