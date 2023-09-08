@@ -12,9 +12,9 @@ export function uiReducer(state = initialState, action) {
   
   switch (action.type) {
     case actions.LOGIN:
-      return state.set("isUserLoggedIn", true);
+      return state.set("isUserLoggedIn", true).set("user", action.user);
     case actions.LOGOUT:
-      return state.set("isUserLoggedIn", false);
+      return state.set("isUserLoggedIn", false).set("user", {});
     case actions.DISPLAY_NOTIFICATION_DRAWER:
       return {
         ...state,
